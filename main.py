@@ -31,6 +31,7 @@ while run:
 
     if time % 0x400 == 0:
         try:
+            if time >> 21 : time = 0 #prevent overflow
             e = entry.get()
             assert(isinstance(eval(e, {'t': 0}), int))
             formula = e
