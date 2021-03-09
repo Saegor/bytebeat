@@ -13,7 +13,6 @@ audio = pa.open(
 )
 
 tk = Tk()
-tk.show = True
 
 entry = Entry(tk, width = 3 << 4)
 entry['font'] = 'Terminus', 24
@@ -28,10 +27,7 @@ def close():
 tk.protocol("WM_DELETE_WINDOW", close)
 
 time = 0
-
 while run:
-
-    tk.update()
 
     if time % 0x400 == 0:
         try:
@@ -48,3 +44,4 @@ while run:
         time += 1
 
     audio.write(bytes(values))
+    tk.update()
